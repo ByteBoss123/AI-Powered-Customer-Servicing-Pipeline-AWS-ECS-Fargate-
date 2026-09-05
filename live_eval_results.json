@@ -1,0 +1,1509 @@
+[
+  {
+    "id": "t01",
+    "expected_reason": "payment_issue",
+    "predicted_reason": "payment_issue",
+    "correct": true,
+    "escalated": false,
+    "reference_text": "I was charged eighty four dollars twice for the same transaction and I want that fixed.",
+    "redacted_transcript": "I was charged 84 dollars twice for the same transaction and I want that fixed.",
+    "wer_vs_redacted_transcript": 0.125,
+    "latency_ms": 4387.9,
+    "raw_response": {
+      "call_id": "t01",
+      "redacted_transcript": "I was charged 84 dollars twice for the same transaction and I want that fixed.",
+      "classification": {
+        "call_reason": "payment_issue",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.37882001312972735
+        },
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.3755813772673155
+        },
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.266764885066594
+        }
+      ],
+      "summary": "I was charged 84 dollars twice for the same transaction and I want that fixed.",
+      "recommended_action": "Follow retrieved policy POL-FRAUD-001",
+      "confidence": 0.5864,
+      "escalated": false,
+      "escalation_reasons": [],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.5864,
+          "timestamp_ns": 1788587271924028116,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587271924062685,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587271924100287,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587271924958258,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.3788,
+          "timestamp_ns": 1788587271955045851,
+          "metadata": {
+            "policy_ids": [
+              "POL-FRAUD-001",
+              "POL-PAY-001",
+              "POL-REWARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587274155562466,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:47:54.155591+00:00"
+    }
+  },
+  {
+    "id": "t02",
+    "expected_reason": "fraud_dispute",
+    "predicted_reason": "fraud_dispute",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "There is a charge on my account that I did not make and I think someone stole my card number.",
+    "redacted_transcript": "Now in a charge on my account, I did not make and I think someone stole my card number.",
+    "wer_vs_redacted_transcript": 0.2,
+    "latency_ms": 3200.8,
+    "raw_response": {
+      "call_id": "t02",
+      "redacted_transcript": "Now in a charge on my account, I did not make and I think someone stole my card number.",
+      "classification": {
+        "call_reason": "fraud_dispute",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.6658226146190698
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.42848330587167327
+        },
+        {
+          "policy_id": "POL-ACCOUNT-001",
+          "title": "Account profile and contact-information changes",
+          "text": "Address, email, phone, and profile changes require identity verification before an agent updates account information. Escalate when identity verification is incomplete.",
+          "score": 0.3437838838394565
+        }
+      ],
+      "summary": "Don't make a charge on your account.",
+      "recommended_action": "Follow retrieved policy POL-FRAUD-001",
+      "confidence": 0.6127,
+      "escalated": true,
+      "escalation_reasons": [
+        "high_risk_fraud_dispute"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.6127,
+          "timestamp_ns": 1788587275948207965,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587275948243612,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587275948281945,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587275948310737,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.6658,
+          "timestamp_ns": 1788587276189730132,
+          "metadata": {
+            "policy_ids": [
+              "POL-FRAUD-001",
+              "POL-CARD-001",
+              "POL-ACCOUNT-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587277426106986,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:47:57.426142+00:00"
+    }
+  },
+  {
+    "id": "t03",
+    "expected_reason": "card_access",
+    "predicted_reason": "other",
+    "correct": false,
+    "escalated": true,
+    "reference_text": "My card is not working at the store and I need a new one sent to me.",
+    "redacted_transcript": "My card is not working at the store and I need a new one cent to meet.",
+    "wer_vs_redacted_transcript": 0.1176,
+    "latency_ms": 11932.9,
+    "raw_response": {
+      "call_id": "t03",
+      "redacted_transcript": "My card is not working at the store and I need a new one cent to meet.",
+      "classification": {
+        "call_reason": "other",
+        "reason_confidence": 0.35,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.3442018710971145
+        },
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.2520411659404165
+        },
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.2259955260203787
+        }
+      ],
+      "summary": "Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions. Call the store if you have any questions.",
+      "recommended_action": "Follow retrieved policy POL-CARD-001",
+      "confidence": 0.35,
+      "escalated": true,
+      "escalation_reasons": [
+        "confidence_below_threshold",
+        "unsupported_call_reason"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.7453,
+          "timestamp_ns": 1788587279649235708,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587279649268388,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.35,
+          "timestamp_ns": 1788587279649305565,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587279650198136,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.3442,
+          "timestamp_ns": 1788587279883605425,
+          "metadata": {
+            "policy_ids": [
+              "POL-CARD-001",
+              "POL-FRAUD-001",
+              "POL-REWARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587289269817530,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:48:09.269870+00:00"
+    }
+  },
+  {
+    "id": "t04",
+    "expected_reason": "account_information",
+    "predicted_reason": "account_information",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "I need to update my mailing address to my new home.",
+    "redacted_transcript": "I need to update my mailing address to my new home.",
+    "wer_vs_redacted_transcript": 0.0,
+    "latency_ms": 3961.4,
+    "raw_response": {
+      "call_id": "t04",
+      "redacted_transcript": "I need to update my mailing address to my new home.",
+      "classification": {
+        "call_reason": "account_information",
+        "reason_confidence": 0.79,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-ACCOUNT-001",
+          "title": "Account profile and contact-information changes",
+          "text": "Address, email, phone, and profile changes require identity verification before an agent updates account information. Escalate when identity verification is incomplete.",
+          "score": 0.448847860852414
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.2362340001034778
+        },
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.17551760308217768
+        }
+      ],
+      "summary": "[POL-PAY-001]",
+      "recommended_action": "Follow retrieved policy POL-ACCOUNT-001",
+      "confidence": 0.689,
+      "escalated": true,
+      "escalation_reasons": [
+        "identity_verification_required"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.689,
+          "timestamp_ns": 1788587291007336448,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587291008525761,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.79,
+          "timestamp_ns": 1788587291008564039,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587291008590167,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4488,
+          "timestamp_ns": 1788587291221884417,
+          "metadata": {
+            "policy_ids": [
+              "POL-ACCOUNT-001",
+              "POL-CARD-001",
+              "POL-PAY-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587293323418087,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:48:13.323441+00:00"
+    }
+  },
+  {
+    "id": "t05",
+    "expected_reason": "rewards",
+    "predicted_reason": "rewards",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "I want to redeem my reward points for a statement credit.",
+    "redacted_transcript": "I want to redeem my reward for understatement, credit.",
+    "wer_vs_redacted_transcript": 0.2727,
+    "latency_ms": 7767.4,
+    "raw_response": {
+      "call_id": "t05",
+      "redacted_transcript": "I want to redeem my reward for understatement, credit.",
+      "classification": {
+        "call_reason": "rewards",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.537817791815936
+        },
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.23050222119692929
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.22574859745542628
+        }
+      ],
+      "summary": "[POL-FRAUD-001] Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed. [POL-CARD-001] Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+      "recommended_action": "Follow retrieved policy POL-REWARD-001",
+      "confidence": 0.3703,
+      "escalated": true,
+      "escalation_reasons": [
+        "confidence_below_threshold"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.3703,
+          "timestamp_ns": 1788587295235196538,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587295235237602,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587295235274012,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587295235297180,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.5378,
+          "timestamp_ns": 1788587295518695343,
+          "metadata": {
+            "policy_ids": [
+              "POL-REWARD-001",
+              "POL-FRAUD-001",
+              "POL-CARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587300959469203,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:48:20.959494+00:00"
+    }
+  },
+  {
+    "id": "t06",
+    "expected_reason": "payment_issue",
+    "predicted_reason": "payment_issue",
+    "correct": true,
+    "escalated": false,
+    "reference_text": "My payment did not go through and now I have a late fee I want removed.",
+    "redacted_transcript": "My payment did not go through and I have a late fee I want removed.",
+    "wer_vs_redacted_transcript": 0.0625,
+    "latency_ms": 8194.5,
+    "raw_response": {
+      "call_id": "t06",
+      "redacted_transcript": "My payment did not go through and I have a late fee I want removed.",
+      "classification": {
+        "call_reason": "payment_issue",
+        "reason_confidence": 0.79,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.4604104952450119
+        },
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.3540071332149783
+        },
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.2444112261906736
+        }
+      ],
+      "summary": "Call the customer-service call and recommend only actions supported by policy. [POL-PAY-001] Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed. [POL-REWARD-001] Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+      "recommended_action": "Follow retrieved policy POL-PAY-001",
+      "confidence": 0.5719,
+      "escalated": false,
+      "escalation_reasons": [],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.5719,
+          "timestamp_ns": 1788587303040337022,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587303040389625,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.79,
+          "timestamp_ns": 1788587303040429313,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587303040457077,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4604,
+          "timestamp_ns": 1788587303278535265,
+          "metadata": {
+            "policy_ids": [
+              "POL-PAY-001",
+              "POL-FRAUD-001",
+              "POL-REWARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587309240751919,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:48:29.240779+00:00"
+    }
+  },
+  {
+    "id": "t07",
+    "expected_reason": "fraud_dispute",
+    "predicted_reason": "other",
+    "correct": false,
+    "escalated": true,
+    "reference_text": "Someone used my card without my permission and I need to report fraud immediately.",
+    "redacted_transcript": "Someone used my card without my permission and I needed to report floor demeated.",
+    "wer_vs_redacted_transcript": 0.2143,
+    "latency_ms": 11805.8,
+    "raw_response": {
+      "call_id": "t07",
+      "redacted_transcript": "Someone used my card without my permission and I needed to report floor demeated.",
+      "classification": {
+        "call_reason": "other",
+        "reason_confidence": 0.35,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.45091356509920116
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.43176597116562476
+        },
+        {
+          "policy_id": "POL-ACCOUNT-001",
+          "title": "Account profile and contact-information changes",
+          "text": "Address, email, phone, and profile changes require identity verification before an agent updates account information. Escalate when identity verification is incomplete.",
+          "score": 0.2419675595570991
+        }
+      ],
+      "summary": "Using a credit card with a credit card is a risk to your credit card. Using a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit card with a credit",
+      "recommended_action": "Follow retrieved policy POL-FRAUD-001",
+      "confidence": 0.35,
+      "escalated": true,
+      "escalation_reasons": [
+        "confidence_below_threshold",
+        "unsupported_call_reason"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.397,
+          "timestamp_ns": 1788587311094629371,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587311096558784,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.35,
+          "timestamp_ns": 1788587311096600873,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587311096628211,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4509,
+          "timestamp_ns": 1788587311388690863,
+          "metadata": {
+            "policy_ids": [
+              "POL-FRAUD-001",
+              "POL-CARD-001",
+              "POL-ACCOUNT-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587321094378494,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:48:41.094404+00:00"
+    }
+  },
+  {
+    "id": "t08",
+    "expected_reason": "card_access",
+    "predicted_reason": "card_access",
+    "correct": true,
+    "escalated": false,
+    "reference_text": "I lost my card yesterday and need it blocked and replaced right away.",
+    "redacted_transcript": "I lost my card yesterday and leave it locked and replaced right away.",
+    "wer_vs_redacted_transcript": 0.1538,
+    "latency_ms": 11777.3,
+    "raw_response": {
+      "call_id": "t08",
+      "redacted_transcript": "I lost my card yesterday and leave it locked and replaced right away.",
+      "classification": {
+        "call_reason": "card_access",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.49053723251515186
+        },
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.4044793938400474
+        },
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.27018906392159453
+        }
+      ],
+      "summary": "Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund. Call the customer service call and ask for a refund.",
+      "recommended_action": "Follow retrieved policy POL-CARD-001",
+      "confidence": 0.6682,
+      "escalated": false,
+      "escalation_reasons": [],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.6682,
+          "timestamp_ns": 1788587322961910866,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587322962866017,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587322962911576,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587322962939858,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4905,
+          "timestamp_ns": 1788587323260382148,
+          "metadata": {
+            "policy_ids": [
+              "POL-CARD-001",
+              "POL-FRAUD-001",
+              "POL-REWARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587332845003846,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:48:52.845027+00:00"
+    }
+  },
+  {
+    "id": "t09",
+    "expected_reason": "account_information",
+    "predicted_reason": "account_information",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "Can you change the phone number on file for my account.",
+    "redacted_transcript": "Can you change the phone number on file for my account?",
+    "wer_vs_redacted_transcript": 0.0909,
+    "latency_ms": 3316.7,
+    "raw_response": {
+      "call_id": "t09",
+      "redacted_transcript": "Can you change the phone number on file for my account?",
+      "classification": {
+        "call_reason": "account_information",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-ACCOUNT-001",
+          "title": "Account profile and contact-information changes",
+          "text": "Address, email, phone, and profile changes require identity verification before an agent updates account information. Escalate when identity verification is incomplete.",
+          "score": 0.4396105383712734
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.2797170961499891
+        },
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.2425722173399772
+        }
+      ],
+      "summary": "[POL-PAY-001]",
+      "recommended_action": "Follow retrieved policy POL-ACCOUNT-001",
+      "confidence": 0.6633,
+      "escalated": true,
+      "escalation_reasons": [
+        "identity_verification_required"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.6633,
+          "timestamp_ns": 1788587334382111207,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587334382143748,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587334382178694,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587334382203349,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4396,
+          "timestamp_ns": 1788587334639337555,
+          "metadata": {
+            "policy_ids": [
+              "POL-ACCOUNT-001",
+              "POL-CARD-001",
+              "POL-PAY-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587336101975453,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:48:56.102001+00:00"
+    }
+  },
+  {
+    "id": "t10",
+    "expected_reason": "rewards",
+    "predicted_reason": "rewards",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "How many reward points do I currently have in my account.",
+    "redacted_transcript": "How many rewards point do my currently have in my account?",
+    "wer_vs_redacted_transcript": 0.3636,
+    "latency_ms": 11773.7,
+    "raw_response": {
+      "call_id": "t10",
+      "redacted_transcript": "How many rewards point do my currently have in my account?",
+      "classification": {
+        "call_reason": "rewards",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.5179902882197854
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.17504095849277948
+        },
+        {
+          "policy_id": "POL-ACCOUNT-001",
+          "title": "Account profile and contact-information changes",
+          "text": "Address, email, phone, and profile changes require identity verification before an agent updates account information. Escalate when identity verification is incomplete.",
+          "score": 0.12346209827751223
+        }
+      ],
+      "summary": "[POL-REWARD-001] Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. [POL-CARD-001] Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details. [POL-ACCOUNT-001] Address, email, phone, and profile changes require identity verification before an agent updates account information. [POL-ACCOUNT-001] Address, email, phone, and profile changes require identity verification before an agent updates account information. [POL-ACCOUNT-001] Address, email, phone, and profile changes require identity verification before an agent updates account information. [POL-ACCOUNT-001] Address, email, phone, and profile",
+      "recommended_action": "Follow retrieved policy POL-REWARD-001",
+      "confidence": 0.4475,
+      "escalated": true,
+      "escalation_reasons": [
+        "confidence_below_threshold"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.4475,
+          "timestamp_ns": 1788587338004835076,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587338004874056,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587338004915174,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587338004941213,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.518,
+          "timestamp_ns": 1788587338205297304,
+          "metadata": {
+            "policy_ids": [
+              "POL-REWARD-001",
+              "POL-CARD-001",
+              "POL-ACCOUNT-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587347886152712,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:49:07.886179+00:00"
+    }
+  },
+  {
+    "id": "t11",
+    "expected_reason": "payment_issue",
+    "predicted_reason": "payment_issue",
+    "correct": true,
+    "escalated": false,
+    "reference_text": "I was double billed this month and need a refund for the extra charge.",
+    "redacted_transcript": "I was double-built this month and leave a refund for the extra charge.",
+    "wer_vs_redacted_transcript": 0.2143,
+    "latency_ms": 5024.9,
+    "raw_response": {
+      "call_id": "t11",
+      "redacted_transcript": "I was double-built this month and leave a refund for the extra charge.",
+      "classification": {
+        "call_reason": "payment_issue",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.37137267872093055
+        },
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.3577388962637445
+        },
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.3518339560394068
+        }
+      ],
+      "summary": "I was double-built this month and left a refund for the extra charge.",
+      "recommended_action": "Follow retrieved policy POL-PAY-001",
+      "confidence": 0.569,
+      "escalated": false,
+      "escalation_reasons": [],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.569,
+          "timestamp_ns": 1788587349808210671,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587349810170337,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587349810209609,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587349810236573,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.3714,
+          "timestamp_ns": 1788587350127495259,
+          "metadata": {
+            "policy_ids": [
+              "POL-PAY-001",
+              "POL-FRAUD-001",
+              "POL-REWARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587352925445551,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:49:12.925473+00:00"
+    }
+  },
+  {
+    "id": "t12",
+    "expected_reason": "fraud_dispute",
+    "predicted_reason": "fraud_dispute",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "I am disputing a transaction that looks like unauthorized fraud on my statement.",
+    "redacted_transcript": "I am disputing a transaction that looks like an authorized fraud on my statement.",
+    "wer_vs_redacted_transcript": 0.1538,
+    "latency_ms": 4075.1,
+    "raw_response": {
+      "call_id": "t12",
+      "redacted_transcript": "I am disputing a transaction that looks like an authorized fraud on my statement.",
+      "classification": {
+        "call_reason": "fraud_dispute",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.6037730510161436
+        },
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.2510602275956019
+        },
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.2502116705010771
+        }
+      ],
+      "summary": "I am disputing a transaction that looks like an authorized fraud on my statement.",
+      "recommended_action": "Follow retrieved policy POL-FRAUD-001",
+      "confidence": 0.5376,
+      "escalated": true,
+      "escalation_reasons": [
+        "high_risk_fraud_dispute"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.5376,
+          "timestamp_ns": 1788587354946866379,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587354948843395,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587354948882672,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587354948926728,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.6038,
+          "timestamp_ns": 1788587355242125925,
+          "metadata": {
+            "policy_ids": [
+              "POL-FRAUD-001",
+              "POL-REWARD-001",
+              "POL-PAY-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587357062326672,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:49:17.062352+00:00"
+    }
+  },
+  {
+    "id": "t13",
+    "expected_reason": "card_access",
+    "predicted_reason": "card_access",
+    "correct": true,
+    "escalated": false,
+    "reference_text": "My card got declined at checkout and I do not understand why.",
+    "redacted_transcript": "My card got declined and checked out and I do not understand why.",
+    "wer_vs_redacted_transcript": 0.25,
+    "latency_ms": 7613.5,
+    "raw_response": {
+      "call_id": "t13",
+      "redacted_transcript": "My card got declined and checked out and I do not understand why.",
+      "classification": {
+        "call_reason": "card_access",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.48270578289135047
+        },
+        {
+          "policy_id": "POL-FRAUD-001",
+          "title": "Unauthorized transaction dispute",
+          "text": "Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed.",
+          "score": 0.41414275641958714
+        },
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.31037555312400444
+        }
+      ],
+      "summary": "[POL-REWARD-001] Immediately escalate suspected fraud for identity verification. Lock the affected card, document the disputed merchant and amount, and do not promise provisional credit until eligibility is confirmed. [POL-REWARD-001] Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+      "recommended_action": "Follow retrieved policy POL-CARD-001",
+      "confidence": 0.483,
+      "escalated": false,
+      "escalation_reasons": [],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.483,
+          "timestamp_ns": 1788587359104146735,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587359104185006,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587359104220411,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587359104264415,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4827,
+          "timestamp_ns": 1788587359343838407,
+          "metadata": {
+            "policy_ids": [
+              "POL-CARD-001",
+              "POL-FRAUD-001",
+              "POL-REWARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587364582186745,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:49:24.582214+00:00"
+    }
+  },
+  {
+    "id": "t14",
+    "expected_reason": "account_information",
+    "predicted_reason": "account_information",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "I would like to update my email address on my profile.",
+    "redacted_transcript": "I would like to update my email address on my profile.",
+    "wer_vs_redacted_transcript": 0.0,
+    "latency_ms": 3763.9,
+    "raw_response": {
+      "call_id": "t14",
+      "redacted_transcript": "I would like to update my email address on my profile.",
+      "classification": {
+        "call_reason": "account_information",
+        "reason_confidence": 0.91,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-ACCOUNT-001",
+          "title": "Account profile and contact-information changes",
+          "text": "Address, email, phone, and profile changes require identity verification before an agent updates account information. Escalate when identity verification is incomplete.",
+          "score": 0.47377061949312144
+        },
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.20624428784286855
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.20344143688677552
+        }
+      ],
+      "summary": "Email address: [POL-ACCOUNT-001]",
+      "recommended_action": "Follow retrieved policy POL-ACCOUNT-001",
+      "confidence": 0.7356,
+      "escalated": true,
+      "escalation_reasons": [
+        "identity_verification_required"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.7356,
+          "timestamp_ns": 1788587366494066694,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587366495284094,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.91,
+          "timestamp_ns": 1788587366495326308,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587366495352532,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4738,
+          "timestamp_ns": 1788587366770278610,
+          "metadata": {
+            "policy_ids": [
+              "POL-ACCOUNT-001",
+              "POL-PAY-001",
+              "POL-CARD-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587368373968870,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:49:28.373993+00:00"
+    }
+  },
+  {
+    "id": "t15",
+    "expected_reason": "rewards",
+    "predicted_reason": "rewards",
+    "correct": true,
+    "escalated": true,
+    "reference_text": "I would like to transfer my cash back rewards to my bank account.",
+    "redacted_transcript": "I would like to transfer my cash-back rewards to my Manka Count.",
+    "wer_vs_redacted_transcript": 0.3077,
+    "latency_ms": 3587.2,
+    "raw_response": {
+      "call_id": "t15",
+      "redacted_transcript": "I would like to transfer my cash-back rewards to my Manka Count.",
+      "classification": {
+        "call_reason": "rewards",
+        "reason_confidence": 0.67,
+        "sentiment": "neutral",
+        "sentiment_confidence": 0.55
+      },
+      "extracted_fields": {},
+      "retrieved_policies": [
+        {
+          "policy_id": "POL-REWARD-001",
+          "title": "Rewards inquiry",
+          "text": "Explain posted and pending rewards separately. Refer unresolved missing rewards for transaction-level review. Do not manually calculate or promise rewards not shown in the account ledger.",
+          "score": 0.4266697171372985
+        },
+        {
+          "policy_id": "POL-CARD-001",
+          "title": "Declined, locked, or replacement card",
+          "text": "Verify card status and identity before activation or unlocking. Escalate repeated declines with no visible account restriction. Replacement delivery estimates depend on verified mailing details.",
+          "score": 0.19962194796463478
+        },
+        {
+          "policy_id": "POL-PAY-001",
+          "title": "Payment and late-fee review",
+          "text": "Verify payment date, amount, and posting status. Explain pending payment timelines. A late-fee adjustment requires eligibility review and must not be guaranteed by the automated assistant.",
+          "score": 0.18991526993352123
+        }
+      ],
+      "summary": "Is there anything else I can help you with?",
+      "recommended_action": "Follow retrieved policy POL-REWARD-001",
+      "confidence": 0.3723,
+      "escalated": true,
+      "escalation_reasons": [
+        "confidence_below_threshold"
+      ],
+      "model_version": "aws-v1",
+      "trace": [
+        {
+          "step": "transcription",
+          "confidence": 0.3723,
+          "timestamp_ns": 1788587370244521465,
+          "metadata": {}
+        },
+        {
+          "step": "pii_redaction",
+          "confidence": 1.0,
+          "timestamp_ns": 1788587370244557985,
+          "metadata": {
+            "entities_redacted": {}
+          }
+        },
+        {
+          "step": "classification",
+          "confidence": 0.67,
+          "timestamp_ns": 1788587370244592963,
+          "metadata": {}
+        },
+        {
+          "step": "field_extraction",
+          "confidence": 0.6,
+          "timestamp_ns": 1788587370244618425,
+          "metadata": {
+            "field_count": 0
+          }
+        },
+        {
+          "step": "retrieval",
+          "confidence": 0.4267,
+          "timestamp_ns": 1788587370498050160,
+          "metadata": {
+            "policy_ids": [
+              "POL-REWARD-001",
+              "POL-CARD-001",
+              "POL-PAY-001"
+            ]
+          }
+        },
+        {
+          "step": "generation",
+          "confidence": 0.75,
+          "timestamp_ns": 1788587372018283194,
+          "metadata": {
+            "grounded": true
+          }
+        }
+      ],
+      "created_at": "2026-09-05T05:49:32.018311+00:00"
+    }
+  }
+]

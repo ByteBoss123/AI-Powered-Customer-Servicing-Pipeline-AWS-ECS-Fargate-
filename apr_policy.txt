@@ -1,0 +1,8 @@
+APR and Rate Change Policy (TestCard Servicing Guidelines, Synthetic)
+
+Standard variable APR is tied to the Prime Rate plus a margin disclosed in the cardholder agreement.
+Customers may request their current APR and the date of the last rate change; this information may be
+provided directly by a frontline agent or automated system.
+A penalty APR may be applied after a payment is 60 days past due, per the cardholder agreement.
+Any request to have a penalty APR removed or to negotiate a permanent rate reduction must be
+escalated to a retention specialist and is not authorized for automated resolution.

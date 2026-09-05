@@ -1,0 +1,20 @@
+{"query": "Can you waive my late fee this month? I've never been late before.", "gold_category": "late_fee", "gold_escalate": false}
+{"query": "I already got a late fee waived in March, can you waive another one this year?", "gold_category": "late_fee", "gold_escalate": true}
+{"query": "What is the late fee amount if I miss a payment?", "gold_category": "late_fee", "gold_escalate": false}
+{"query": "There's a $30 charge on my statement I don't recognize, it looks like a duplicate.", "gold_category": "dispute", "gold_escalate": true}
+{"query": "I want to dispute a $150 charge, it wasn't me.", "gold_category": "dispute", "gold_escalate": true}
+{"query": "How long does a dispute investigation usually take?", "gold_category": "dispute", "gold_escalate": false}
+{"query": "My card was stolen last night, what do I do?", "gold_category": "fraud", "gold_escalate": true}
+{"query": "Someone used my card without permission, I need to report it.", "gold_category": "fraud", "gold_escalate": true}
+{"query": "I need to give you my social security number to verify my identity.", "gold_category": "other", "gold_escalate": true}
+{"query": "What is my current APR?", "gold_category": "apr", "gold_escalate": false}
+{"query": "Can you permanently lower my interest rate?", "gold_category": "apr", "gold_escalate": true}
+{"query": "When was my APR last changed?", "gold_category": "apr", "gold_escalate": false}
+{"query": "Can I get a credit limit increase?", "gold_category": "credit_limit", "gold_escalate": false}
+{"query": "What's my current available credit?", "gold_category": "credit_limit", "gold_escalate": false}
+{"query": "I lost my job and can't afford my payments right now.", "gold_category": "hardship", "gold_escalate": true}
+{"query": "I'm having a medical emergency and need help with my payments.", "gold_category": "hardship", "gold_escalate": true}
+{"query": "Can I enroll in a hardship program?", "gold_category": "hardship", "gold_escalate": true}
+{"query": "What's the weather like today?", "gold_category": "other", "gold_escalate": true}
+{"query": "Can you tell me a joke?", "gold_category": "other", "gold_escalate": true}
+{"query": "How many billing cycles before a late fee waiver resets?", "gold_category": "late_fee", "gold_escalate": false}

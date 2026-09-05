@@ -1,0 +1,9 @@
+Transaction Dispute Policy (TestCard Servicing Guidelines, Synthetic)
+
+Customers may dispute a transaction within 60 calendar days of the statement date on which it appeared.
+Disputes involving amounts under $50 with a clear duplicate-charge pattern may be provisionally credited
+by a frontline agent while the investigation is pending.
+Disputes involving amounts of $50 or more, or any dispute alleging unauthorized use or identity theft,
+must be escalated to the Fraud and Disputes team and are not authorized for frontline resolution.
+Provisional credit is reversed if the investigation determines the transaction was valid.
+Customers must be informed that investigations can take up to 90 days under applicable regulations.

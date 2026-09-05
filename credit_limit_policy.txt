@@ -1,0 +1,9 @@
+Credit Limit Policy (TestCard Servicing Guidelines, Synthetic)
+
+Customers may request their current credit limit and available credit; this may be provided directly
+by a frontline agent or automated system.
+Customers may request a credit limit increase once every six months. Requests may be evaluated
+automatically using existing account data if the customer has at least twelve months of on-time
+payment history; otherwise the request must be escalated for manual underwriting review.
+A credit limit decrease initiated by the company must always be communicated with the required
+adverse action notice and is handled by the Risk team, not frontline servicing.

@@ -1,0 +1,8 @@
+Fraud Claims Policy (TestCard Servicing Guidelines, Synthetic)
+
+Any report of a lost or stolen card, or any suspected unauthorized transaction, must be escalated
+immediately to the Fraud team. Frontline agents and automated systems may not resolve fraud claims
+directly, but may confirm the card has been temporarily locked and a replacement has been ordered.
+Customers are not liable for confirmed unauthorized transactions once a fraud claim is filed.
+Any request involving a customer's Social Security number, full account number, or identity verification
+document must be escalated and is never handled by an automated system.

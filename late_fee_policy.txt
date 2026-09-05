@@ -1,0 +1,11 @@
+Late Fee Policy (TestCard Servicing Guidelines, Synthetic)
+
+A late fee of $29 is applied when a minimum payment is not received by the due date.
+A late fee of $40 is applied for a second late payment within the same six-billing-cycle window.
+Accounts in good standing (no late payment in the prior twelve billing cycles) are eligible for one
+courtesy late fee waiver per rolling twelve-month period. This waiver may only be granted once per
+twelve months, regardless of how many late payments occur afterward.
+A second waiver request within the same twelve-month period must be escalated to a servicing
+supervisor for manual review; frontline agents and automated systems are not authorized to approve it.
+Customers who are enrolled in a hardship program are evaluated under the Hardship Program Policy
+instead of this policy.

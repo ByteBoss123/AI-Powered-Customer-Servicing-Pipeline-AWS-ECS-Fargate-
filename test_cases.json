@@ -1,0 +1,77 @@
+[
+  {
+    "id": "t01",
+    "text": "I was charged eighty four dollars twice for the same transaction and I want that fixed.",
+    "expected_reason": "payment_issue"
+  },
+  {
+    "id": "t02",
+    "text": "There is a charge on my account that I did not make and I think someone stole my card number.",
+    "expected_reason": "fraud_dispute"
+  },
+  {
+    "id": "t03",
+    "text": "My card is not working at the store and I need a new one sent to me.",
+    "expected_reason": "card_access"
+  },
+  {
+    "id": "t04",
+    "text": "I need to update my mailing address to my new home.",
+    "expected_reason": "account_information"
+  },
+  {
+    "id": "t05",
+    "text": "I want to redeem my reward points for a statement credit.",
+    "expected_reason": "rewards"
+  },
+  {
+    "id": "t06",
+    "text": "My payment did not go through and now I have a late fee I want removed.",
+    "expected_reason": "payment_issue"
+  },
+  {
+    "id": "t07",
+    "text": "Someone used my card without my permission and I need to report fraud immediately.",
+    "expected_reason": "fraud_dispute"
+  },
+  {
+    "id": "t08",
+    "text": "I lost my card yesterday and need it blocked and replaced right away.",
+    "expected_reason": "card_access"
+  },
+  {
+    "id": "t09",
+    "text": "Can you change the phone number on file for my account.",
+    "expected_reason": "account_information"
+  },
+  {
+    "id": "t10",
+    "text": "How many reward points do I currently have in my account.",
+    "expected_reason": "rewards"
+  },
+  {
+    "id": "t11",
+    "text": "I was double billed this month and need a refund for the extra charge.",
+    "expected_reason": "payment_issue"
+  },
+  {
+    "id": "t12",
+    "text": "I am disputing a transaction that looks like unauthorized fraud on my statement.",
+    "expected_reason": "fraud_dispute"
+  },
+  {
+    "id": "t13",
+    "text": "My card got declined at checkout and I do not understand why.",
+    "expected_reason": "card_access"
+  },
+  {
+    "id": "t14",
+    "text": "I would like to update my email address on my profile.",
+    "expected_reason": "account_information"
+  },
+  {
+    "id": "t15",
+    "text": "I would like to transfer my cash back rewards to my bank account.",
+    "expected_reason": "rewards"
+  }
+]
