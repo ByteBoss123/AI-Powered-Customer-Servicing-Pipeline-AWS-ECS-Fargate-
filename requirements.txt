@@ -1,0 +1,7 @@
+langgraph>=0.2,<2
+llama-index-core>=0.12,<1
+transformers>=4.45,<5
+torch>=2.4,<3
+sentencepiece>=0.2,<1
+weave>=0.51,<1
+requests>=2.32,<3

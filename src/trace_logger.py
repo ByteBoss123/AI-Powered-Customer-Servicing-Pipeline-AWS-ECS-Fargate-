@@ -10,6 +10,8 @@ per-call trace data (inputs, outputs, latency, call id) to a local JSONL file
 so the eval report and dashboard have real trace data to work from, in place
 of the Weave UI.
 """
+import copy
+import functools
 import json
 import time
 import uuid
@@ -46,7 +48,9 @@ def traced(node_name: str):
     keyed by run_id found in the node's state dict."""
 
     def decorator(fn):
+        @functools.wraps(fn)
         def wrapper(state: dict):
+            before = copy.deepcopy(state)
             start = time.perf_counter()
             result_state = fn(state)
             latency_ms = (time.perf_counter() - start) * 1000
@@ -54,8 +58,8 @@ def traced(node_name: str):
             _logger.log(
                 run_id=run_id,
                 node_name=node_name,
-                inputs={k: v for k, v in state.items() if k != "run_id"},
-                outputs={k: v for k, v in result_state.items() if k not in state or result_state[k] != state.get(k)},
+                inputs={k: v for k, v in before.items() if k != "run_id"},
+                outputs={k: v for k, v in result_state.items() if k not in before or result_state[k] != before.get(k)},
                 latency_ms=latency_ms,
             )
             return result_state

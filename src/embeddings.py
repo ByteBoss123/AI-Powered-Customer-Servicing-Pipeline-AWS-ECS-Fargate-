@@ -14,7 +14,7 @@ from typing import List
 from llama_index.core.embeddings import BaseEmbedding
 from transformers import T5Tokenizer, T5EncoderModel
 
-MODEL_PATH = "/home/claude/models/flan-t5-small/flan-t5-small"
+from src.config import MODEL_PATH
 
 
 class T5EncoderEmbedding(BaseEmbedding):

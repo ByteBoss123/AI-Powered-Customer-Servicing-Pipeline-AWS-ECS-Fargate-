@@ -4,7 +4,7 @@ and generates source-grounded responses conditioned on retrieved policy text.
 """
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-MODEL_PATH = "/home/claude/models/flan-t5-small/flan-t5-small"
+from src.config import MODEL_PATH
 
 _tokenizer = None
 _model = None

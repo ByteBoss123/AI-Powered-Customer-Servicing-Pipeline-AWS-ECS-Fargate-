@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+.venv/
+models/
+results/*.json
+results/*.jsonl
+legacy/callassist/live_eval_results_new.json
+.env

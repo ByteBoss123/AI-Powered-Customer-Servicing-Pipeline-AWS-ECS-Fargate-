@@ -1,3 +1,4 @@
+import math
 import json
 import os
 import uuid
@@ -107,7 +108,7 @@ def main():
     latency_summary = {
         node: {
             "mean_ms": round(statistics.mean(vals), 1),
-            "p95_ms": round(sorted(vals)[int(len(vals) * 0.95) - 1], 1) if len(vals) > 1 else round(vals[0], 1),
+            "p95_ms": round(sorted(vals)[math.ceil(len(vals) * 0.95) - 1], 1) if len(vals) > 1 else round(vals[0], 1),
         }
         for node, vals in latencies_by_node.items()
     }
@@ -128,7 +129,7 @@ def main():
         "latency_by_node_ms": latency_summary,
         "e2e_latency_ms": {
             "mean": round(statistics.mean(e2e_latencies), 1),
-            "p95": round(sorted(e2e_latencies)[int(len(e2e_latencies) * 0.95) - 1], 1) if len(e2e_latencies) > 1 else round(e2e_latencies[0], 1),
+            "p95": round(sorted(e2e_latencies)[math.ceil(len(e2e_latencies) * 0.95) - 1], 1) if len(e2e_latencies) > 1 else round(e2e_latencies[0], 1),
         },
     }
 

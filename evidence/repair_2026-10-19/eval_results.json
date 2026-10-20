@@ -1,0 +1,299 @@
+{
+  "summary": {
+    "n_test_cases": 20,
+    "category_accuracy": 0.9,
+    "escalation_accuracy": 1.0,
+    "escalation_recall_on_mandatory_cases": 1.0,
+    "false_escalation_rate": 0.0,
+    "retrieval_hit_rate": 0.824,
+    "avg_groundedness_lexical_overlap": 0.625,
+    "latency_by_node_ms": {
+      "classify_node": {
+        "mean_ms": 0.0,
+        "p95_ms": 0.1
+      },
+      "retrieve_node": {
+        "mean_ms": 1628.7,
+        "p95_ms": 1422.8
+      },
+      "generate_node": {
+        "mean_ms": 1966.0,
+        "p95_ms": 6213.0
+      },
+      "confidence_gate_node": {
+        "mean_ms": 0.0,
+        "p95_ms": 0.1
+      },
+      "finalize_node": {
+        "mean_ms": 0.0,
+        "p95_ms": 0.0
+      }
+    },
+    "e2e_latency_ms": {
+      "mean": 3594.8,
+      "p95": 11052.6
+    }
+  },
+  "records": [
+    {
+      "query": "Can you waive my late fee this month? I've never been late before.",
+      "gold_category": "late_fee",
+      "pred_category": "late_fee",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.5224182155089722,
+      "groundedness": 0.0,
+      "final_response": "No"
+    },
+    {
+      "query": "I already got a late fee waived in March, can you waive another one this year?",
+      "gold_category": "late_fee",
+      "pred_category": "late_fee",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.49963233193721285,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "What is the late fee amount if I miss a payment?",
+      "gold_category": "late_fee",
+      "pred_category": "late_fee",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.3759023809846419,
+      "groundedness": 0.0,
+      "final_response": "$40"
+    },
+    {
+      "query": "There's a $30 charge on my statement I don't recognize, it looks like a duplicate.",
+      "gold_category": "dispute",
+      "pred_category": "other",
+      "category_correct": false,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.5107443688472656,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "I want to dispute a $150 charge, it wasn't me.",
+      "gold_category": "dispute",
+      "pred_category": "dispute",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.4924024047185689,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "How long does a dispute investigation usually take?",
+      "gold_category": "dispute",
+      "pred_category": "dispute",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.32707242987743246,
+      "groundedness": 1.0,
+      "final_response": "60 calendar days"
+    },
+    {
+      "query": "My card was stolen last night, what do I do?",
+      "gold_category": "fraud",
+      "pred_category": "fraud",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.4066801146303181,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "Someone used my card without permission, I need to report it.",
+      "gold_category": "fraud",
+      "pred_category": "other",
+      "category_correct": false,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.5369124079055265,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "I need to give you my social security number to verify my identity.",
+      "gold_category": "other",
+      "pred_category": "other",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": null,
+      "top_retrieval_score": 0.5488059343616044,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "What is my current APR?",
+      "gold_category": "apr",
+      "pred_category": "apr",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.2533100968669174,
+      "groundedness": 1.0,
+      "final_response": "Standard variable APR"
+    },
+    {
+      "query": "Can you permanently lower my interest rate?",
+      "gold_category": "apr",
+      "pred_category": "apr",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.332092209936363,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "When was my APR last changed?",
+      "gold_category": "apr",
+      "pred_category": "apr",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.37807507527073014,
+      "groundedness": 1.0,
+      "final_response": "the date of the last rate change"
+    },
+    {
+      "query": "Can I get a credit limit increase?",
+      "gold_category": "credit_limit",
+      "pred_category": "credit_limit",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.3501586582004235,
+      "groundedness": 0.0,
+      "final_response": "Yes"
+    },
+    {
+      "query": "What's my current available credit?",
+      "gold_category": "credit_limit",
+      "pred_category": "credit_limit",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": false,
+      "top_retrieval_score": 0.3507317823389753,
+      "groundedness": 1.0,
+      "final_response": "APR and Rate Change Policy"
+    },
+    {
+      "query": "I lost my job and can't afford my payments right now.",
+      "gold_category": "hardship",
+      "pred_category": "hardship",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": false,
+      "top_retrieval_score": 0.4972764253533193,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "I'm having a medical emergency and need help with my payments.",
+      "gold_category": "hardship",
+      "pred_category": "hardship",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": false,
+      "top_retrieval_score": 0.4627752244483538,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "Can I enroll in a hardship program?",
+      "gold_category": "hardship",
+      "pred_category": "hardship",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.32822158428697784,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (compliance-sensitive category requires human review). They'll follow up shortly."
+    },
+    {
+      "query": "What's the weather like today?",
+      "gold_category": "other",
+      "pred_category": "other",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": null,
+      "top_retrieval_score": 0.22365100915114733,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (request did not match a known policy category). They'll follow up shortly."
+    },
+    {
+      "query": "Can you tell me a joke?",
+      "gold_category": "other",
+      "pred_category": "other",
+      "category_correct": true,
+      "gold_escalate": true,
+      "pred_escalate": true,
+      "escalation_correct": true,
+      "retrieval_hit": null,
+      "top_retrieval_score": 0.17238784707488197,
+      "groundedness": null,
+      "final_response": "I want to make sure this is handled correctly, so I'm routing this to a specialist (request did not match a known policy category). They'll follow up shortly."
+    },
+    {
+      "query": "How many billing cycles before a late fee waiver resets?",
+      "gold_category": "late_fee",
+      "pred_category": "late_fee",
+      "category_correct": true,
+      "gold_escalate": false,
+      "pred_escalate": false,
+      "escalation_correct": true,
+      "retrieval_hit": true,
+      "top_retrieval_score": 0.5035966151272284,
+      "groundedness": 1.0,
+      "final_response": "twelve"
+    }
+  ]
+}
