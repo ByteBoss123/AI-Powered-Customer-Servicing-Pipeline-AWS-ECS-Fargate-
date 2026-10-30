@@ -3,6 +3,12 @@ __pycache__/
 .venv/
 models/
 results/*.json
+!results/results.json
 results/*.jsonl
 legacy/callassist/live_eval_results_new.json
 .env
+data/*.csv
+results/model.joblib
+__pycache__/
+*.egg-info/
+.pytest_cache/

@@ -1,0 +1,152 @@
+{
+  "data": {
+    "source": "Banking77 (Casanueva et al., 2020), real customer queries to a digital bank",
+    "intents": 77,
+    "teams": 6,
+    "train_fit": 8502,
+    "validation": 1501,
+    "test": 3080,
+    "test_messages_by_team": {
+      "Cards": 1080,
+      "Fees & exchange": 480,
+      "Transfers & refunds": 480,
+      "Top-ups": 360,
+      "Account & identity": 360,
+      "Fraud & security": 320
+    }
+  },
+  "model_selection_validation": {
+    "word tf-idf, C=10": {
+      "accuracy": 0.8854,
+      "macro_f1": 0.8864
+    },
+    "word + char tf-idf, C=10": {
+      "accuracy": 0.9154,
+      "macro_f1": 0.9167
+    },
+    "word + char tf-idf, C=30": {
+      "accuracy": 0.9147,
+      "macro_f1": 0.916
+    }
+  },
+  "chosen_model": "word + char tf-idf, C=10",
+  "test_intent": {
+    "accuracy": 0.9104,
+    "macro_f1": 0.9106
+  },
+  "test_team_routing_accuracy": 0.9737,
+  "test_team_routing_accuracy_by_team": {
+    "Fraud & security": 0.9437,
+    "Cards": 0.9889,
+    "Transfers & refunds": 0.9542,
+    "Top-ups": 0.9667,
+    "Fees & exchange": 0.9667,
+    "Account & identity": 0.9972
+  },
+  "policy": {
+    "urgent_escalation_threshold": 0.1601,
+    "auto_route_threshold": 0.2891,
+    "test_fraud_messages": 320,
+    "test_fraud_caught_by_escalation": 315,
+    "test_fraud_recall": 0.9844,
+    "test_escalations_that_were_fraud": 0.8898,
+    "test_fraud_missed_examples": [
+      {
+        "text": "Is a copy of the police report necessary for completing the report process?",
+        "category": "lost_or_stolen_card"
+      },
+      {
+        "text": "I cannot find my credit card.",
+        "category": "lost_or_stolen_card"
+      },
+      {
+        "text": "I was retrieving money and my card wouldn't remove.",
+        "category": "card_swallowed"
+      },
+      {
+        "text": "I was taking out funds and was unable to regain my card.",
+        "category": "card_swallowed"
+      },
+      {
+        "text": "WTF??? I tried to withdraw some money at a Metro bank on High St. Kensington and without any notice it disappeared in the machine. The bank was already closed so I couldn't do anything. How do I get it back?",
+        "category": "card_swallowed"
+      }
+    ],
+    "test_auto_routed_share": 0.8847,
+    "test_auto_routed_accuracy": 0.9802,
+    "test_human_triage_share": 0.0003,
+    "test_escalated_share": 0.1149
+  },
+  "auto_route_tradeoff": [
+    {
+      "validation_target": 0.97,
+      "threshold": 0.2891,
+      "test_auto_routed_share": 0.8847,
+      "test_auto_routed_accuracy": 0.9802,
+      "test_to_human_share": 0.0003
+    },
+    {
+      "validation_target": 0.98,
+      "threshold": 0.4401,
+      "test_auto_routed_share": 0.8724,
+      "test_auto_routed_accuracy": 0.9851,
+      "test_to_human_share": 0.0127
+    },
+    {
+      "validation_target": 0.99,
+      "threshold": 0.658,
+      "test_auto_routed_share": 0.8205,
+      "test_auto_routed_accuracy": 0.9964,
+      "test_to_human_share": 0.0646
+    },
+    {
+      "validation_target": 0.995,
+      "threshold": 0.8036,
+      "test_auto_routed_share": 0.764,
+      "test_auto_routed_accuracy": 0.9983,
+      "test_to_human_share": 0.1211
+    }
+  ],
+  "test_top_intent_confusions": [
+    {
+      "true": "top_up_failed",
+      "predicted": "top_up_reverted",
+      "count": 5
+    },
+    {
+      "true": "virtual_card_not_working",
+      "predicted": "get_disposable_virtual_card",
+      "count": 4
+    },
+    {
+      "true": "balance_not_updated_after_bank_transfer",
+      "predicted": "transfer_not_received_by_recipient",
+      "count": 4
+    },
+    {
+      "true": "verify_my_identity",
+      "predicted": "why_verify_identity",
+      "count": 4
+    },
+    {
+      "true": "card_arrival",
+      "predicted": "card_delivery_estimate",
+      "count": 3
+    },
+    {
+      "true": "card_payment_wrong_exchange_rate",
+      "predicted": "wrong_exchange_rate_for_cash_withdrawal",
+      "count": 3
+    },
+    {
+      "true": "fiat_currency_support",
+      "predicted": "exchange_via_app",
+      "count": 3
+    },
+    {
+      "true": "pin_blocked",
+      "predicted": "card_not_working",
+      "count": 3
+    }
+  ]
+}
